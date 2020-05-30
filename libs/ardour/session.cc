@@ -7065,6 +7065,12 @@ Session::maybe_update_tempo_from_midiclock_tempo (float bpm)
 }
 
 void
+Session::send_mclk_for_cycle (samplepos_t start_sample, samplepos_t end_sample, pframes_t n_samples)
+{
+	midi_clock->tick (start_sample, end_sample, n_samples);
+}
+
+void
 Session::set_had_destructive_tracks (bool yn)
 {
 	_had_destructive_tracks = yn;
